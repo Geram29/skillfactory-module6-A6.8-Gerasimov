@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<title>Задание А6.8 (peer-to-peer)</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Задание А6.8</h1>
+			<h2>(пыр-ту-пыр)</h2>
+			<div class="progress" style="height:40px; margin-bottom: 60px;"> 
+			  <div
+			    id="my-progress-bar"
+			    class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+			    role="progressbar"
+			    style="width: 0%"
+			    aria-valuenow="0" 
+			    aria-valuemin="0" 
+			    aria-valuemax="100">
+			  </div>
+			</div>
+			<div class="group-buttons">
+			  <button onclick="funcProgress(1)" type="button" class="btn btn-outline-primary">Прогресс +1%</button>
+			  <button onclick="funcProgress(3)" type="button" class="btn btn-outline-success">Прогресс +3%</button>
+			  <button onclick="funcProgress(7)" type="button" class="btn btn-outline-danger">Прогресс +7%</button>
+			</div>
+		</div>
+		
+		<script src="./js/jquery-3.4.1.min.js"></script>
+	    <script src="./js/bootstrap.bundle.min.js"></script>
+
+	    <script type="text/javascript">
+	    	var totalProgress = 0;
+	    	function funcProgress(pcProgress) {
+	    		totalProgress = totalProgress + pcProgress;
+	    		// console.log(String(totalProgress) + "%")
+	    		if (totalProgress > 100) {
+	    			totalProgress = 100;
+	    			$( "button" ).prop( "disabled", true );
+	    		};
+	    		$("#my-progress-bar").width(String(totalProgress) + "%")
+	    		$('.progress-bar').text(totalProgress + '%');
+	    	}
+	    </script>
+	</body>
+</html>
